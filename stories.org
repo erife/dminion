@@ -1,0 +1,49 @@
+* DMinion
+** Show Character
+*** Name, Race, Class, etc.
+*** RP Bias
+*** Base Stats
+*** Calculated Modifiers (Initiative, Saves, Surges, Bloodied, etc.)
+**** Detail Display of Math Behind Calculated Modifiers
+*** Inventory and Equipment
+*** Gold
+*** Conditions
+** List Party
+*** Out of Combat Summary of Characters
+*** Character Locations
+*** Passive RP Stats
+*** Perception Notifications
+** List Encounter							 :DM:
+*** Coalesce NPC and PC in a List by Initiative Order
+*** Move Through Character Turns
+*** Show Available Action List
+*** Walk Turn Phases
+**** Ongoing Damage
+**** Clear Decrementing Conditions
+**** Free Actions
+**** Minor, Move, Standard
+**** Saves
+*** Action Buttons to Modify Stats
+*** Remove Character from Encounter
+*** End Encounter
+** Action List
+*** Show Unfiltered List With Salient Details
+*** Show Filtered List of Available Actions
+*** Button to Consume Action
+*** Log Item with Action Result and Target
+*** 
+** Show Action
+** Show Party Action
+** Use Action
+** Apply Condition
+** Modify Stats
+** Update Items
+** Consume Items
+** Show Turn Phases
+** Show Encounter Report
+** Rest
+** Show Encounter
+** List Log
+** Show Log
+** Create Summary
+** Show Summary
