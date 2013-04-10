@@ -28,7 +28,16 @@ EventMachine.run do
       characters_display = characters.map do |character|
         erb :character_row, :locals => {:character => character}
       end
-      erb :dm, :locals => {:characters => characters_display}
+      turn_display       = erb :turn
+      action_display     = erb :action
+      resolution_display = erb :resolution
+
+      erb :dm, :locals => {
+        :characters => characters_display,
+        :turn       => turn_display,
+        :action     => action_display,
+        :resolution => resolution_display
+      }
     end
 
     get '/character/:character_name' do
