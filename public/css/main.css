@@ -1,0 +1,39 @@
+body{
+    font-size: 100%;
+    font-family: 'Courier New', monospace;
+    font-variant: small-caps;
+    color: black;
+}
+
+h1 {
+    text-align: center;
+    font:  small-caps 100 5em "MV Boli", cursive;
+    color: #3a3a3a;
+    text-shadow: 0.1em 0.1em .1em grey;
+    margin: .5em 0em .25em;
+}
+
+label, dt {
+    font-size: 1em;
+    font-weight: normal;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.connected {
+    background-color: green;
+    border: 1px dashed green;
+}
+
+#health ~ dd {
+    float: left;
+}
+
+tr.current_turn td.turn{
+    background-image:url('../img/arrow.jpg');
+    background-repeat:no-repeat;
+    background-position: right center;
+
+}
