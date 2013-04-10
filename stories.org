@@ -1,8 +1,34 @@
 * DMinion
 ** Show Character
-*** Name, Race, Class, etc.
+*** Metrics
+**** Name
+**** Race
+**** Class
+**** HP
+**** Tmp HP
+**** Surges
+**** Surge Value
+**** Action Points
+**** AC
+**** Fortitude
+**** Reflex
+**** Will
+**** STR
+**** CON
+**** DEX
+**** WIS
+**** INT
+**** CHA
+**** Initiative
+**** Speed
+**** Passive Perception
+**** Passive Insight
+*** Skills
+**** 17 skills and descriptions
 *** RP Bias
-*** Base Stats
+**** racism
+**** loyalties
+**** peeves
 *** Calculated Modifiers (Initiative, Saves, Surges, Bloodied, etc.)
 **** Detail Display of Math Behind Calculated Modifiers
 *** Inventory and Equipment
@@ -31,7 +57,7 @@
 *** Show Filtered List of Available Actions
 *** Button to Consume Action
 *** Log Item with Action Result and Target
-*** 
+***
 ** Show Action
 ** Show Party Action
 ** Use Action
