@@ -23,13 +23,7 @@
           <th>Actions</th>
         </tr>
         <% characters.each do |character| %>
-        <tr id="<%= character[:name] %>" class="character">
-          <td class="status">&nbsp;</td>
-          <td class="name"><%= character[:name] %></td>
-          <td class="health"><%= character[:health] %></td>
-          <td class="turn">&nbsp;</td>
-          <td><input type="text" name="health_adjustment" value="" /></td>
-        </tr>
+        <%= character %>
         <% end %>
       </table>
     </div>

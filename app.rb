@@ -24,7 +24,11 @@ EventMachine.run do
     end
 
     get '/dm' do
-      erb :dm, :locals => {:characters => Character.format_characters($characters)}
+      characters = Character.format_characters($characters)
+      characters_display = characters.map do |character|
+        erb :character_row, :locals => {:character => character}
+      end
+      erb :dm, :locals => {:characters => characters_display}
     end
 
     get '/character/:character_name' do
