@@ -37,3 +37,34 @@ tr.current_turn td.turn{
     background-position: right center;
 
 }
+
+.section {
+    width: 40%;
+}
+
+.panel {
+    float: left;
+    clear: left;
+    border: 3px groove black;
+    -moz-border-radius: 25px 10px / 10px 25px;
+    border-radius: 25px 10px / 10px 25px;
+    padding: 1em;
+}
+
+#character_ability div {
+    background-color: red;
+    height: 10px;
+    width: 20px;
+    float: left;
+}
+
+#difficulty {
+    background-color: green;
+    width: 300px;
+    height: 10px;
+}
+
+#party, #subset {
+    float: left;
+    width: 45%
+}

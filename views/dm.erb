@@ -13,19 +13,33 @@
   <body>
     <div id="main">
       <h1>DM</h1>
-      <label>Party</label>
-      <table>
-        <tr>
-          <th>Status</th>
-          <th>Name</th>
-          <th>Health</th>
-          <th>Turn</th>
-          <th>Actions</th>
-        </tr>
-        <% characters.each do |character| %>
-        <%= character %>
-        <% end %>
-      </table>
+      <div id="party" class="panel">
+        <label>Party</label>
+        <table>
+          <tr>
+            <th>Status</th>
+            <th>Name</th>
+            <th>Health</th>
+            <th>Turn</th>
+            <th>Actions</th>
+          </tr>
+          <% characters.each do |character| %>
+          <%= character %>
+          <% end %>
+        </table>
+
+      </div>
+      <div id="subset">
+        <div id="turn">
+          <%= turn %>
+        </div>
+        <div id="action">
+          <%= action %>
+        </div>
+        <div id="resolution">
+          <%= resolution %>
+        </div>
+      </div>
     </div>
   </body>
 </html>
