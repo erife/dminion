@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title>DMinion - DM</title>
+    <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/main.css" type="text/css" media="screen" />
+
+    <script type="text/javascript" src="/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui-1.10.2.custom.js"></script>
+    <script type="text/javascript" src="/js/dm.js"></script>
+  </head>
+  <body>
+    <div id="main">
+      <h1>DM</h1>
+      <label>Party</label>
+      <table>
+        <tr>
+          <th>Status</th>
+          <th>Name</th>
+          <th>Health</th>
+          <th>Turn</th>
+          <th>Actions</th>
+        </tr>
+        <% characters.each do |character| %>
+        <tr id="<%= character[:name] %>" class="character">
+          <td class="status">&nbsp;</td>
+          <td class="name"><%= character[:name] %></td>
+          <td class="health"><%= character[:health] %></td>
+          <td class="turn">&nbsp;</td>
+          <td><input type="text" name="health_adjustment" value="" /></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </body>
+</html>

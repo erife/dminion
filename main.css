@@ -1,0 +1,184 @@
+body{
+    background-image:url('../images/wordplay_bg1.jpg');
+    font-size: 100%;
+    font-family: 'Courier New', monospace;
+    font-variant: small-caps;
+    color: black;
+}
+
+h1 {
+    text-align: center;
+    font:  small-caps 100 5em "MV Boli", cursive;
+    color: #3a3a3a;
+    text-shadow: 0.1em 0.1em .1em grey;
+    margin: .5em 0em .25em;
+}
+
+label, dt {
+    font-size: 1em;
+    font-weight: normal;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.display dd{
+border: groove thick white;
+box-shadow: 5px 5px 3px silver;
+border-radius: 5px;
+text-align: center;
+font-size: 2em;
+font-family: "MV Boli", cursive;
+/*color: #3a3a3a;*/
+width: 200px;
+height: 30px;
+}
+
+.display li {
+	float: left;
+  padding: 25px;
+  color: #3a3a3a;
+}
+
+#error {
+  position: absolute;
+}
+
+#words {
+  clear: left;
+}
+
+#result {
+  clear: left;
+}
+
+#words >  li{
+padding: 25px;
+width: 25%;
+float: left;
+}
+
+#words .word {
+border: groove thick white;
+box-shadow: 5px 5px 3px silver;
+border-radius: 5px;
+font-size: 2em;
+height: 40px;
+width: 245px;
+}
+
+.word li{
+    border:solid 2px;
+    margin: 2px;
+    text-align: center;
+    float: left;
+    width: 30px;
+    height: 30px;
+  	box-shadow: 3px 3px 2px;
+	  border-radius: 4px;
+}
+
+#found {
+  width: 1250px;
+  margin: 35px;
+	color:red;
+}
+
+#found > ul{
+    clear left;
+  	padding: 1%;
+    float: left;
+}
+
+#found ul li ul li{
+    background-color: white;
+    border:solid 1px black;
+    height: 1em;
+    width: 1em;
+    font-size: 1em;
+    text-align: center;
+    margin: 1px 0px 1px;
+    float: left;
+		}
+
+#found ul li ul {
+  clear: left;
+}
+
+.kitty{
+   clear: both;
+   width: 150px;
+   height: 150px;
+   position: absolute;
+   left: 200px;
+   top: 10px;
+}
+
+#losekitten dd, #winkitten dd{
+    position: absolute;
+		top: 165;
+  	left: 200;
+  	font-size: 2em;
+		font-weight: bold;
+}
+
+#winkitten dd{
+    color: green;
+}  
+
+#losekitten dd{
+    color: red;
+}
+
+
+.invisible {
+    display: none;
+}
+
+.foundword{
+ 	color: black; 
+}
+
+.timeout{
+    text-decoration: blink;
+    color: red;
+}
+
+#highscore{
+  	position: fixed;
+  	background-color: white;
+  	width: 500px;
+  	height: 500px;
+  	left: 30%;
+  	top: 25%;
+		font-size: 1.5em;
+    text-align: center;
+}
+
+
+table {
+  padding: 1px;
+	width: 100%;
+	text-align: center;  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

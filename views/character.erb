@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>DMinion - Character (<%= name %>)</title>
+
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+
+    <script type="text/javascript" src="/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui-1.10.2.custom.js"></script>
+    <script type="text/javascript" src="/js/character.js"></script>
+  </head>
+  <body>
+    <input type="hidden" id="character_name" name="character_name" value="<%= name %>" />
+    <div id="main">
+      <caption>Character: <%= name %></caption>
+      <dl id="stats">
+        <dt id="health">Health</dt>
+        <dd class="health"><%= health %></dd>
+        <dd>/</dd>
+        <dd><%= max_health %></dd>
+      </dl>
+    </div>
+  </body>
+</html>
