@@ -1,0 +1,23 @@
+img.phase {
+    width: 20px;
+    height: 18px;
+    background:url("../img/shield_and_sword.png") 1 0;
+}
+
+li.expired img.phase {
+    width: 20px;
+    height: 18px;
+    background:url("../img/shield_and_sword.png") 20 0;
+}
+
+tr.current_turn td.turn.warrior{
+    width: 20px;
+    height: 18px;
+    background:url('../img/weapon_sprites.png') -91 455;
+}
+
+tr.current_turn td.turn.archer{
+    width: 20px;
+    height: 18px;
+    background:url('../img/weapon_sprites.png') -116 359;
+}

@@ -12,8 +12,8 @@ set :public_folder, File.expand_path(File.dirname(__FILE__) + '/public')
 
 $channel = EM::Channel.new
 $characters = {
-  "santorini" => Character.new("santorini"),
-  "zakiti" => Character.new("zakiti")
+  "santorini" => Character.new("santorini", "archer"),
+  "zakiti" => Character.new("zakiti", "warrior")
 }
 
 EventMachine.run do

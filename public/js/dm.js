@@ -142,6 +142,26 @@ $(function(){
     auto_populate_action_log(boilerplate);
   }
 
+   handle_initiative_change = function(evt) {
+
+    // a simple compare function, used by the sort below
+    var compare_rows = function (a,b){
+      var a_val = parseInt($(a).children(".initiative"));
+      var b_val = parseInt($(b).children(".initiative"));
+      if (a_val>b_val){
+        return 1;
+      }
+      if (a_val<b_val){
+        return -1;
+      }
+      return 0;
+    };
+
+    // the actual sort
+    $('#party table .character').sort(compare_rows).appendTo('#party table');
+
+  };
+
   handle_action_log = function(evt){
     var form = $(evt.target),
     input = form.children("input");
@@ -159,10 +179,10 @@ $(function(){
   }
 
   auto_populate_action_log = function(msg) {
-    $("#action_form input").val(msg).focus();
+    $("#action_form input").val(msg + " ").focus();
   }
 
-  $("#action button").click(handle_expire_phase);
+  $("#action img.phase").click(handle_expire_phase);
   $("#action_form").submit(handle_action_log);
 
   $(document).keydown(handlekey);
