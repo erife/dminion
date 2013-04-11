@@ -8,8 +8,8 @@ body{
 h1 {
     text-align: center;
     font:  small-caps 100 5em "MV Boli", cursive;
-    color: #3a3a3a;
-    text-shadow: 0.1em 0.1em .1em grey;
+    color: #CCC;
+    text-shadow: 0.1em 0.1em .1em black;
     margin: .5em 0em .25em;
 }
 
@@ -22,9 +22,22 @@ ul{
     list-style-type: none;
 }
 
+#main {
+    width: 80%;
+    margin: auto;
+    padding: 2em;
+    position: relative;
+    background-image:url('../img/background.jpg');
+    height: 800px;
+}
+
 .connected {
     background-color: green;
     border: 1px dashed green;
+}
+
+.expired {
+    color: #999;
 }
 
 #health ~ dd {
@@ -45,6 +58,7 @@ tr.current_turn td.turn{
 .panel {
     float: left;
     clear: left;
+    background-image:url("../img/panel.jpg");
     border: 3px groove black;
     -moz-border-radius: 25px 10px / 10px 25px;
     border-radius: 25px 10px / 10px 25px;
@@ -67,4 +81,8 @@ tr.current_turn td.turn{
 #party, #subset {
     float: left;
     width: 45%
+}
+
+#action_form input {
+    width: 300px;
 }
