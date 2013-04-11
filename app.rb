@@ -5,6 +5,7 @@ require 'yajl'
 require 'sinatra'
 require 'thin'
 require './models/character'
+require './models/action_log'
 
 set :static => true
 set :public_folder, File.expand_path(File.dirname(__FILE__) + '/public')
@@ -65,6 +66,9 @@ EventMachine.run do
           character = $characters[event["character_name"]]
           response = character.handle_event(event)
         else
+          if event["type"] == "action_log"
+            ActionLog.handle(event)
+          end
           response = event
         end
 

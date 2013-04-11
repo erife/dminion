@@ -1,6 +1,15 @@
 <ul id="action" class="panel">
-  <li>Apply Ongoing Damage</li>
-  <li>Free Actions</li>
-  <li>Minor/Move/Standard</li>
-  <li>Roll to Save vs Effects</li>
+  <li><button>X</button> <span alt="takes ongoing damage">Apply Ongoing Damage</span></li>
+  <li><button>X</button> <span alt="says to ">Free Actions</span></li>
+  <li><button>X</button> <span alt="marks">Minor</span></li>
+  <li><button>X</button> <span alt="">Move</span></li>
+  <li><button>X</button> <span alt="attacks">Standard</span></li>
+  <li><button>X</button> <span alt="recovers">Roll to Save vs Effects</span></li>
+  <li>
+    <form method="POST" id="action_form" action="#">
+      <label>Action Log</label>
+      <input type="text" id="action_log" name="action_log" value="" />
+      <button>&gt;</button>
+    </form>
+  </li>
 </ul>

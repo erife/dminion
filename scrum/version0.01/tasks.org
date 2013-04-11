@@ -20,26 +20,6 @@ Tasks:
 Peter
 
 As a DM
-I see the active character increment when I press 'n' if I'm not focused in an input
-So I can move through turns
-
-As a DM
-I see a button to resolve each phase
-So I don't miss important actions like applying ongoing damage or rolling for save
-
-As a DM
-I see the actions available to a player
-So they can't cheat or accidentally use something more often than they ought to
-
-As a DM
-I have an input to create audit entries for interesting events
-So I can create a log of events from which to write summaries
-
-As a DM
-I see the audit input pre-populated when HP changes
-So I don't have to type boilerplate
-
-As a DM
 I see the characters sorted by Initiative
 So the turns execute in the correct order
 

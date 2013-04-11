@@ -60,7 +60,10 @@ $(function(){
     current_character.removeClass("current_turn");
     next_character.addClass("current_turn");
 
-    next_character.find("input").focus();
+    // Re-enable the phases
+    $("#action li").removeClass("expired");
+
+    next_character.focus();
 
   }
 
@@ -69,9 +72,19 @@ $(function(){
     value = target.val();
 
     if(value.length > 0){
-      var character_name = target.parents("tr").attr("id");
+      var character_name = current_character_name();
 
       emit_health_event(character_name, value);
+
+      if(value > 0){
+        boilerplate = character_name + " is healed for " + value + " health";
+      } else {
+        boilerplate = character_name + " takes " + value + " damage";
+      }
+
+      auto_populate_action_log(boilerplate);
+
+      // clear the input
       target.val();
     }
     return false;
@@ -81,6 +94,79 @@ $(function(){
     next_character();
     $(".character input").blur(function(){next_character();})
   }
+
+  function handlekey(event){
+
+    // Handle delete events to prevent back button from OSX
+    if (event.which == 8 || event.which == 46)
+    {
+        if(event.target.localName != "input") {
+	        return false;
+        }
+    }
+    // Handle spacebar
+    else if(event.which == 32){
+
+    }
+    // Esc
+    else if(event.which == 27){
+    }
+    // alpha characters
+    else if(event.which >=65 && event.which <=90){
+      if(event.which == 78){
+        if(event.target.localName != "input") {
+
+          next_character();
+        }
+      }
+
+    }
+    // enter
+    else if(event.which == 13){
+    }
+    // unhandled
+    else{
+
+    }
+  }
+
+  handle_expire_phase = function(evt){
+    var target = $(evt.target),
+    msg = target.siblings("span").attr("alt");
+
+    // grey out the phase
+    target.parents("li").addClass("expired");
+
+    // prepopulate the action log with a message
+    boilerplate = current_character_name() + " " + msg;
+    auto_populate_action_log(boilerplate);
+  }
+
+  handle_action_log = function(evt){
+    var form = $(evt.target),
+    input = form.children("input");
+
+    emit_event("action_log", "dm", input.val());
+    input.val("");
+    input.blur();
+
+    return false;
+
+  }
+
+  current_character_name = function(){
+    return $("tr.current_turn").attr("id");
+  }
+
+  auto_populate_action_log = function(msg) {
+    $("#action_form input").val(msg).focus();
+  }
+
+  $("#action button").click(handle_expire_phase);
+  $("#action_form").submit(handle_action_log);
+
+  $(document).keydown(handlekey);
+
 
   initialize();
 
