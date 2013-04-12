@@ -20,6 +20,7 @@ $(function(){
 
   ws.onopen = function() {
     emit_status_event("joining");
+    handle_initiative_change();
   };
 
   handle_attr_change_health = function(data) {
@@ -143,16 +144,18 @@ $(function(){
   }
 
    handle_initiative_change = function(evt) {
-
     // a simple compare function, used by the sort below
-    var compare_rows = function (a,b){
-      var a_val = parseInt($(a).children(".initiative"));
-      var b_val = parseInt($(b).children(".initiative"));
-      if (a_val>b_val){
-        return 1;
+     var compare_rows = function (a,b){
+       var a_val = parseInt($(a).children(".initiative").html());
+       var b_val = parseInt($(b).children(".initiative").html());
+       console.log(a_val);
+       console.log(b_val);
+
+       if (a_val>b_val){
+        return -1;
       }
       if (a_val<b_val){
-        return -1;
+        return 1;
       }
       return 0;
     };

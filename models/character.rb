@@ -5,12 +5,13 @@ class Character
     characters.keys.sort.map {|character_name| characters[character_name].format_index}
   end
 
-  def initialize(name, role)
-    @name       = name
-    @initiatve  = 1
-    @health     = 100
-    @max_health = 100
-    @role       = role
+  def initialize(options)
+    @name            = options["name"]
+    @initiative_roll  = options["initiative_roll"]
+
+    @max_health      = options["max_health"]
+    @health          = @max_health
+    @role            = options["role"]
   end
 
   def process(adjustment)
@@ -22,13 +23,17 @@ class Character
     format_show
   end
 
+  def initiative()
+    @initiative_roll
+  end
+
   def format_show
     {
-      :name       => @name,
-      :health     => @health,
-      :initiative => @initiatve,
-      :max_health => @max_health,
-      :role       => @role
+      :name            => @name,
+      :health          => @health,
+      :initiative      => initiative,
+      :max_health      => @max_health,
+      :role            => @role
     }
   end
 

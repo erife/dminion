@@ -11,10 +11,12 @@ set :static => true
 set :public_folder, File.expand_path(File.dirname(__FILE__) + '/public')
 
 $channel = EM::Channel.new
-$characters = {
-  "santorini" => Character.new("santorini", "archer"),
-  "zakiti" => Character.new("zakiti", "warrior")
-}
+
+stubs = Yajl::Parser.parse(File.open("stubs/characters.json"))
+$characters = {}
+stubs.each do |stub|
+  $characters[stub["name"]] = Character.new(stub)
+end
 
 EventMachine.run do
   class App < Sinatra::Base
@@ -27,6 +29,7 @@ EventMachine.run do
     get '/dm' do
       characters = Character.format_characters($characters)
       characters_display = characters.map do |character|
+        puts "PDS >> character: #{character.inspect} #{__FILE__} #{__LINE__}"
         erb :character_row, :locals => {:character => character}
       end
       turn_display       = erb :turn
