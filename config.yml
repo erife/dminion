@@ -1,0 +1,14 @@
+---
+    environment: production
+    chdir: /root/dminion
+    address: 127.0.0.1
+    user: root
+    group: root
+    port: 3000
+    pid: /root/dminion/thin.pid
+    rackup: /root/dminion/config.ru
+    log: /root/dminion/thin.log
+    max_conns: 100
+    timeout: 30
+    max_persistent_conns: 100
+    daemonize: true
