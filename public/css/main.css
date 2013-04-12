@@ -6,12 +6,39 @@ body{
 }
 
 h1 {
+    float: left;
     text-align: center;
-    font:  small-caps 100 5em "MV Boli", cursive;
+    font:  small-caps 100 3em "MV Boli", cursive;
     color: #CCC;
     text-shadow: 0.1em 0.1em .1em black;
-    margin: .5em 0em .25em;
+    margin-top: 30px;
+    padding-left: 10px;
+    padding-right: 15px;
+    border-left: 3px groove silver;
+    border-right: 3px groove silver;
+    background-image:url('../img/cardboard.jpg');
 }
+
+h1, #left_panel, #right_panel {
+    float: left;
+    height: 100px;
+}
+
+#left_panel {
+    border-left-image:url('../img/cardboard.jpg');
+     border-left:100px solid;
+     border-top:30px solid transparent;
+     border-bottom:30px solid transparent;
+     width: 0px;
+}
+
+#right_panel {
+     border-right:100px solid black;
+     border-top:30px solid transparent;
+     border-bottom:30px solid transparent;
+     width: 0px;
+}
+
 
 label, dt {
     font-size: 1em;
@@ -45,11 +72,14 @@ ul{
 }
 
 tr.current_turn td.turn{
-    background-image:url('../img/arrow.jpg');
     background-repeat:no-repeat;
     background-position: right center;
-
 }
+
+tr.current_turn {
+    font-weight: bold;
+}
+
 
 .section {
     width: 40%;

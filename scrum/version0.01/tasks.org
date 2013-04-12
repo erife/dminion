@@ -20,9 +20,5 @@ Tasks:
 Peter
 
 As a DM
-I see the characters sorted by Initiative
-So the turns execute in the correct order
-
-As a DM
 I see a graphic display of each character's ability in a check
 So I can gauge the difficulty of an event

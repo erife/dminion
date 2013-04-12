@@ -1,0 +1,15 @@
+img.phase {
+    background: url("../img/phase_active.png") no-repeat 0 0;
+}
+
+li.expired img.phase {
+    background-image: url("../img/phase_expired.png");
+}
+
+tr.current_turn td.turn.warrior{
+    background-image: url('../img/turn_warrior.png');
+}
+
+tr.current_turn td.turn.archer{
+    background-image: url('../img/turn_ranger.png');
+}
