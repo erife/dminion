@@ -2,6 +2,7 @@ require 'rubygems'
 require 'set'
 require 'em-websocket'
 require 'yajl'
+require 'sqlite3'
 require 'sinatra'
 require 'thin'
 require './models/character'
@@ -12,11 +13,8 @@ set :public_folder, File.expand_path(File.dirname(__FILE__) + '/public')
 
 $channel = EM::Channel.new
 
-stubs = Yajl::Parser.parse(File.open("stubs/characters.json"))
-$characters = {}
-stubs.each do |stub|
-  $characters[stub["name"]] = Character.new(stub)
-end
+$db = SQLite3::Database.new( "data.db" )
+$db.results_as_hash = true
 
 EventMachine.run do
   class App < Sinatra::Base
@@ -27,9 +25,14 @@ EventMachine.run do
     end
 
     get '/dm' do
-      characters = Character.format_characters($characters)
+      character_data = {}
+      stubs = $db.execute( "select * from characters" )
+
+      stubs.each do |stub|
+        character_data[stub["name"]] = Character.new(stub)
+      end
+      characters = Character.format_characters(character_data)
       characters_display = characters.map do |character|
-        puts "PDS >> character: #{character.inspect} #{__FILE__} #{__LINE__}"
         erb :character_row, :locals => {:character => character}
       end
       turn_display       = erb :turn
@@ -45,7 +48,10 @@ EventMachine.run do
     end
 
     get '/character/:character_name' do
-      character = $characters[params[:character_name]]
+      stm = $db.prepare( "select * from characters where name=?" )
+      stm.bind 1, params[:character_name]
+
+      character = Character.new(stm.execute)
       erb :character, :locals => character.format_show()
     end
 
@@ -65,9 +71,16 @@ EventMachine.run do
 
       ws.onmessage { |msg|
         event = Yajl::Parser.parse(msg)
-        if $characters.has_key?(event["character_name"])
-          character = $characters[event["character_name"]]
-          response = character.handle_event(event)
+        if event["type"] == "health"
+          character_name = event["character_name"]
+          character_data = $db.execute("select * from characters where name=?", character_name)[0]
+          if character_data
+            character = Character.new(character_data)
+            response = character.handle_event(event)
+            $db.execute "update characters set health=? where name=?", response["msg"], character_name
+
+            response
+          end
         else
           if event["type"] == "action_log"
             ActionLog.handle(event)

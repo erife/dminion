@@ -80,6 +80,9 @@ tr.current_turn {
     font-weight: bold;
 }
 
+tr.target td.name{
+    color: green;
+}
 
 .section {
     width: 40%;

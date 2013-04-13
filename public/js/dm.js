@@ -68,28 +68,66 @@ $(function(){
 
   }
 
-  $("input[name=health_adjustment]").change(function(e) {
+  function heal_character(e){
     var target = $(e.target),
     value = target.val();
 
     if(value.length > 0){
       var character_name = current_character_name();
+      var current_targets = get_current_targets();
 
-      emit_health_event(character_name, value);
+      $.map(current_targets, function(current_target){
+        emit_health_event(current_target, value);
+      })
 
-      if(value > 0){
-        boilerplate = character_name + " is healed for " + value + " health";
-      } else {
-        boilerplate = character_name + " takes " + value + " damage";
-      }
-
+      boilerplate = character_name + " heals " + targets_string(current_targets) + " for " + value + " health";
       auto_populate_action_log(boilerplate);
 
       // clear the input
-      target.val();
+      target.val("");
     }
     return false;
-  });
+  }
+
+  function damage_character(e){
+    var target = $(e.target),
+    value = target.val();
+
+    if(value.length > 0){
+      var character_name = current_character_name();
+      var current_targets = get_current_targets();
+
+      $.map(current_targets, function(current_target){
+        emit_health_event(current_target, -1 * value);
+      })
+
+      boilerplate = character_name + " damages " + targets_string(current_targets) + " for " + value + " health";
+      auto_populate_action_log(boilerplate);
+
+      // clear the input
+      target.val("");
+    }
+    return false;
+  }
+
+
+
+  function get_current_targets(){
+    var targets = $("tr.target").map(function(){ return $(this).attr("id");}).get();
+    return targets;
+  }
+
+  function targets_string(targets){
+    if(targets.length > 1){
+      var display = targets.slice(0,-1).join(", ") + " and " + targets.slice(-1);
+    } else{
+      var display = targets[0];
+    }
+    return display;
+  }
+
+  $("#resolution input[name=heal]").blur(heal_character);
+  $("#resolution input[name=damage]").blur(damage_character);
 
   initialize = function(){
     next_character();
@@ -148,8 +186,6 @@ $(function(){
      var compare_rows = function (a,b){
        var a_val = parseInt($(a).children(".initiative").html());
        var b_val = parseInt($(b).children(".initiative").html());
-       console.log(a_val);
-       console.log(b_val);
 
        if (a_val>b_val){
         return -1;
@@ -177,6 +213,11 @@ $(function(){
 
   }
 
+  target_creature = function(evt){
+    var creature = $(evt.target).parents("tr");
+    creature.toggleClass("target");
+  }
+
   current_character_name = function(){
     return $("tr.current_turn").attr("id");
   }
@@ -187,6 +228,8 @@ $(function(){
 
   $("#action img.phase").click(handle_expire_phase);
   $("#action_form").submit(handle_action_log);
+
+  $(".character img.target").click(target_creature);
 
   $(document).keydown(handlekey);
 

@@ -7,10 +7,10 @@ class Character
 
   def initialize(options)
     @name            = options["name"]
-    @initiative_roll  = options["initiative_roll"]
+    @initiative  = options["initiative"]
 
     @max_health      = options["max_health"]
-    @health          = @max_health
+    @health          = options["health"]
     @role            = options["role"]
   end
 
@@ -24,7 +24,7 @@ class Character
   end
 
   def initiative()
-    @initiative_roll
+    @initiative
   end
 
   def format_show

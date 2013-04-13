@@ -10,6 +10,10 @@ tr.current_turn td.turn.warrior{
     background-image: url('../img/turn_warrior.png');
 }
 
-tr.current_turn td.turn.archer{
+tr.current_turn td.turn.ranger{
     background-image: url('../img/turn_ranger.png');
+}
+
+tr.current_turn td.turn.mage{
+    background-image: url('../img/turn_mage.png');
 }
