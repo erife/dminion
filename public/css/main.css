@@ -84,6 +84,18 @@ tr.target td.name{
     color: green;
 }
 
+tr.character img.target {
+    opacity: .3;
+}
+tr.target td img.target {
+    width: 0px;
+    height: 0px;
+    padding: 12px;
+    background-repeat:no-repeat;
+    background-image:url("../img/target.png");
+    opacity: 1;
+}
+
 .section {
     width: 40%;
 }
@@ -118,4 +130,19 @@ tr.target td.name{
 
 #action_form input {
     width: 300px;
+}
+
+#party .name {
+    width: 150px;
+    padding-left: 1em;
+    text-align: left;
+    font-size: 1.4em;
+}
+
+#party .health, #party .max_hp {
+    width: 40px;
+    text-align: right;
+    background-color:rgba(30,30,30,0.1);
+    color:rgba(0,0,0,0.9);
+    padding-right: .3em;
 }

@@ -17,3 +17,7 @@ tr.current_turn td.turn.ranger{
 tr.current_turn td.turn.mage{
     background-image: url('../img/turn_mage.png');
 }
+
+tr.current_turn td.turn.rogue{
+    background-image: url('../img/turn_rogue.png');
+}
