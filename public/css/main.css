@@ -24,6 +24,10 @@ h1, #left_panel, #right_panel {
     height: 100px;
 }
 
+.hidden {
+    display: none;
+}
+
 #left_panel {
     border-left-image:url('../img/cardboard.jpg');
      border-left:100px solid;
@@ -55,7 +59,7 @@ ul{
     padding: 2em;
     position: relative;
     background-image:url('../img/background.jpg');
-    height: 800px;
+    height: 690px;
 }
 
 .connected {
@@ -81,7 +85,7 @@ tr.current_turn {
 }
 
 tr.target td.name{
-    color: green;
+    color: red;
 }
 
 tr.character img.target {
@@ -103,11 +107,13 @@ tr.target td img.target {
 .panel {
     float: left;
     clear: left;
+    width: 100%;
     background-image:url("../img/panel.jpg");
     border: 3px groove black;
     -moz-border-radius: 25px 10px / 10px 25px;
     border-radius: 25px 10px / 10px 25px;
     padding: 1em;
+    margin-top: 1em;
 }
 
 #character_ability div {
@@ -123,13 +129,29 @@ tr.target td img.target {
     height: 10px;
 }
 
-#party, #subset {
+.subset {
     float: left;
-    width: 45%
+    width: 40%;
+    margin-right: 4em;
+}
+
+#action_form {
+    width: 100%;
+    background-color:rgba(200,200,200,0.6);
+    clear: left;
+    border-radius: 15px;
+    padding: .2em;
+}
+
+#action_form label {
+    font-weight: bold;
+    margin-left: 1em;
 }
 
 #action_form input {
-    width: 300px;
+    width: 80%;
+    background-color:rgba(200,200,200,0.7);
+    border: 0;
 }
 
 #party .name {
@@ -145,4 +167,31 @@ tr.target td img.target {
     background-color:rgba(30,30,30,0.1);
     color:rgba(0,0,0,0.9);
     padding-right: .3em;
+}
+
+#resolution label {
+    width: 60px;
+    display: block;
+    text-align: right;
+    float: left;
+}
+
+#resolution input {
+    float: left;
+    margin-left: 1em;
+    width: 4em;
+}
+
+#action li:hover {
+    font-weight: bold;
+}
+
+#legend dt, #legend dd {
+    float: left;
+}
+
+#legend dt {
+    clear: left;
+    width: 100px;
+    font-weight: bold;
 }

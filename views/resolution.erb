@@ -1,13 +1,16 @@
 <div id="resolution" class="panel">
-  <form method="POST" id="resolve_action" action=".">
     <ul>
       <li>
-        <label>heal:</label>
-        <input type="text" id="heal" name="heal" value="" />
+        <form method="POST" id="apply_heal" action=".">
+          <label>heal:</label>
+          <input type="text" id="heal" name="heal" value="" />
+        </form>
       </li>
       <li>
-        <label>damage:</label>
-        <input type="text" id="damage" name="damage" value="" />
+        <form method="POST" id="apply_damage" action=".">
+          <label>damage:</label>
+          <input type="text" id="damage" name="damage" value="" />
+        </form>
       </li>
     </ul>
   </form>

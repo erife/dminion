@@ -13,28 +13,51 @@
   </head>
   <body>
     <div id="main">
+      <div id="sound"> </div>
+
       <div id="left_panel" class="screen_panel"> &nbsp; </div>
       <h1>DM</h1>
       <div id="right_panel" class="screen_panel"> &nbsp; </div>
-      <div id="party" class="panel">
-        <label>Party</label>
-        <table>
-          <tr>
-            <th>&nbsp;</th>
-            <th>I</th>
-            <th>Name</th>
-            <th>HP</th>
-            <th>MAX</th>
-            <th>Turn</th>
-            <th>Actions</th>
-          </tr>
-          <% characters.each do |character| %>
-          <%= character %>
-          <% end %>
-        </table>
+      <form method="POST" id="action_form" action="#">
+        <label>Action Log</label>
+        <input type="img" id="action_log" name="action_log" value="" />
+        <button>&gt;</button>
+      </form>
+      <div class="subset">
+        <div id="party" class="panel">
+          <label>Party</label>
+          <table>
+            <tr>
+              <th>&nbsp;</th>
+              <th>I</th>
+              <th>Name</th>
+              <th>HP</th>
+              <th>MAX</th>
+              <th>Turn</th>
+              <th>Actions</th>
+            </tr>
+            <% characters.each do |character| %>
+            <%= character %>
+            <% end %>
+          </table>
+        </div>
 
+        <div id="legend" class="panel">
+          <dl>
+            <dt>C-n</dt>
+            <dd>Next Turn</dd>
+            <dt>C-<1-9></dt>
+            <dd>Toggle Target Selection <1-9></dd>
+            <dt>C-0</dt>
+            <dd>Clear All Targets</dd>
+            <dt>C-h</dt>
+            <dd>Heal Selected Targets</dd>
+            <dt>C-d</dt>
+            <dd>Damage Selected Targets</dd>
+          </dl>
+        </div>
       </div>
-      <div id="subset">
+      <div class="subset">
         <div id="turn">
           <%= turn %>
         </div>

@@ -68,12 +68,14 @@ $(function(){
     // Re-enable the phases
     $("#action li").removeClass("expired");
 
+    clear_targets();
+
     next_character.focus();
 
   }
 
   function heal_character(e){
-    var target = $(e.target),
+    var target = $("#heal"),
     value = target.val(),
     current_targets = get_current_targets();
 
@@ -94,7 +96,7 @@ $(function(){
   }
 
   function damage_character(e){
-    var target = $(e.target),
+    var target = $("#damage"),
     value = target.val();
 
     if(value.length > 0){
@@ -103,6 +105,8 @@ $(function(){
 
       $.map(current_targets, function(current_target){
         emit_health_event(current_target, -1 * value);
+        playSound("../sounds/arrow.wav");
+
       })
 
       boilerplate = character_name + " damages " + targets_string(current_targets) + " for " + value + " health";
@@ -130,8 +134,8 @@ $(function(){
     return display;
   }
 
-  $("#resolution input[name=heal]").blur(heal_character);
-  $("#resolution input[name=damage]").blur(damage_character);
+  $("#apply_heal").submit(heal_character);
+  $("#apply_damage").submit(damage_character);
 
   initialize = function(){
     next_character();
@@ -262,7 +266,7 @@ $(function(){
   }
 
   clear_targets = function(){
-    $(".target").removeClass("target");
+    $("tr.target").removeClass("target");
   }
 
   current_character_name = function(){
@@ -276,6 +280,7 @@ $(function(){
   $("#action img.phase").click(handle_expire_phase);
   $("#action_form").submit(handle_action_log);
 
+
   $(".character img.target").click(target_creature);
 
   $(document).keydown(handlekey);
@@ -284,8 +289,60 @@ $(function(){
   initialize();
 
 
-  set_action_graph = function(){
-    var url = "https://chart.googleapis.com/chart?cht=bhs&chs=400x100&chd=t:10|4|5|6&chco=4d89f9,c6d9fd,C6EFF7,CCCCCC&chbh=20&chxt=x&chxr=0,0,40&chds=0,40&chdl=standard|weapon|spell|roll&chdlp=b|l&chm=N,003300,3,0,15&chtt=Basic Attack (DC:25)"
+  set_action_graph = function(chosen_action){
+
+    var difficulty = 23;
+
+    var colors = [
+      "4d89f9", // Dark Blue
+      "c6d9fd", // Steel Blue
+      "C6EFF7", // Torquoise
+      "CCCCCC"  // Grey
+    ]
+
+    stats = [10,4,5,6].join("|");
+
+    var die_roll_pos = stats.length;
+
+    var options = {
+      cht: "bhs",
+      chs: "400x100",
+      chd: "t:" + stats,
+      chco: colors.join(","),
+      chbh: "20",
+      chxt: "x",
+      chxr: "0,0,40",
+      chds: "0,40",
+      chdl: "standard|weapon|spell|roll",
+      chdlp: "b|l",
+      chm: "N,003300," + die_roll_pos + ",0,15",
+      chtt: chosen_action + " (DC:" + difficulty + ")"
+    }
+
+    var querystring = $.map(options, function(value, key){
+      return key + "=" + value;
+    }).join("&");
+
+    var url = "https://chart.googleapis.com/chart?" + querystring;
+
     $("#difficulty_check").attr("src", url);
+    $("#damage").focus();
   }
+
+  handle_choose_action = function(evt) {
+    var chosen_action = $(evt.target).html();
+
+    console.log(chosen_action);
+
+    set_action_graph(chosen_action);
+    $("#difficulty_check").removeClass("hidden");
+
+    console.log(evt);
+  }
+
+  $("#available li").click(handle_choose_action);
+
+  playSound = function( url ){
+  document.getElementById("sound").innerHTML="<embed src='"+url+"' hidden=true autostart=true loop=false>";
+}
 });
