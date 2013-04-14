@@ -1,4 +1,8 @@
 $(function(){
+  pad = function(str, max) {
+    return str.length < max ? pad("0" + str, max) : str;
+  }
+
   ws = new WebSocket("ws://0.0.0.0:8080");
 
   ws.onmessage = function(evt) {
@@ -70,11 +74,11 @@ $(function(){
 
   function heal_character(e){
     var target = $(e.target),
-    value = target.val();
+    value = target.val(),
+    current_targets = get_current_targets();
 
-    if(value.length > 0){
+    if(value.length > 0 && current_targets.length){
       var character_name = current_character_name();
-      var current_targets = get_current_targets();
 
       $.map(current_targets, function(current_target){
         emit_health_event(current_target, value);
@@ -136,6 +140,7 @@ $(function(){
 
   function handlekey(event){
 
+
     // Handle delete events to prevent back button from OSX
     if (event.which == 8 || event.which == 46)
     {
@@ -150,22 +155,47 @@ $(function(){
     // Esc
     else if(event.which == 27){
     }
+    else if (event.ctrlKey){
+      event.preventDefault();
+
+      if(event.ctrlKey && event.which != 17){
+        console.log(event.which);
+        // Numbers 1-9 for selecting targets
+        if(49 <= event.which && event.which <= 57){
+          var target_index = String.fromCharCode(event.which);
+          toggle_target_by_index(target_index);
+        }
+
+        // clear all selected targets
+        if(event.which == 48){
+          clear_targets();
+        }
+
+        // C-n for moving to the next turn
+        if(event.which == 78){
+            next_character();
+          }
+
+        // C-d for applying damage
+        if(event.which == 72){
+          $("#heal").focus();
+        }
+
+        // C-h for healing
+        if(event.which == 68){
+          $("#damage").focus();
+          }
+
+      }
+    }
     // alpha characters
     else if(event.which >=65 && event.which <=90){
-      if(event.which == 78){
-        if(event.target.localName != "input") {
-
-          next_character();
-        }
-      }
-
     }
     // enter
     else if(event.which == 13){
     }
     // unhandled
     else{
-
     }
   }
 
@@ -197,7 +227,15 @@ $(function(){
     };
 
     // the actual sort
-    $('#party table .character').sort(compare_rows).appendTo('#party table');
+     $('#party table .character')
+       .sort(compare_rows)
+       .appendTo('#party table')
+       .map(function(i){
+         var index = pad(new String(i+1), 2);
+
+         $(this).addClass("creature_" + index);
+       });
+
 
   };
 
@@ -218,6 +256,15 @@ $(function(){
     creature.toggleClass("target");
   }
 
+  toggle_target_by_index = function(index){
+    var creature = $(".creature_" + pad(index, 2));
+    creature.toggleClass("target");
+  }
+
+  clear_targets = function(){
+    $(".target").removeClass("target");
+  }
+
   current_character_name = function(){
     return $("tr.current_turn").attr("id");
   }
@@ -236,4 +283,9 @@ $(function(){
 
   initialize();
 
+
+  set_action_graph = function(){
+    var url = "https://chart.googleapis.com/chart?cht=bhs&chs=400x100&chd=t:10|4|5|6&chco=4d89f9,c6d9fd,C6EFF7,CCCCCC&chbh=20&chxt=x&chxr=0,0,40&chds=0,40&chdl=standard|weapon|spell|roll&chdlp=b|l&chm=N,003300,3,0,15&chtt=Basic Attack (DC:25)"
+    $("#difficulty_check").attr("src", url);
+  }
 });
