@@ -4,5 +4,7 @@ gem "yajl-ruby"
 gem "thin"
 gem "sinatra"
 gem "em-websocket"
-gem "shotgun"
-gem "sqlite3"
+
+group :development, :test do
+  gem 'sqlite3-ruby', :require => 'sqlite3'
+end
