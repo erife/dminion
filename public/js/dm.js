@@ -1,5 +1,7 @@
 var DMINION = (function(){
-  var my ={};
+  var my = {},
+  chosen_action = undefined;
+
   // utility functions
   var ws = new WebSocket("ws://0.0.0.0:8080");
 
@@ -103,8 +105,6 @@ var DMINION = (function(){
   // Resolution Panel
 
   heal_character = function(e){
-    console.log("heaing");
-
     var target = $("#heal"),
     value = target.val(),
     current_targets = get_current_targets();
@@ -279,62 +279,66 @@ var DMINION = (function(){
     $("#action_form input").val(msg + " ").focus();
   },
 
-  set_action_graph = function(chosen_action){
+  handle_choose_action = function(evt) {
+    current_action = $(evt.target).html();
+    $(document).data("current_action", current_action);
 
-    var difficulty = 23;
+    display_action_graphs();
+  }
 
-    var colors = [
-      "4d89f9", // Dark Blue
-      "c6d9fd", // Steel Blue
-      "C6EFF7", // Torquoise
-      "CCCCCC"  // Grey
-    ]
+  display_action_graphs = function(){
+    var current_action = $(document).data("current_action"),
+    current_targets = get_current_targets();
 
-    stats = [10,4,5,6].join("|");
+    console.log(current_action);
+    console.log(current_targets);
 
-    var die_roll_pos = stats.length;
-
-    var options = {
-      cht: "bhs",
-      chs: "400x100",
-      chd: "t:" + stats,
-      chco: colors.join(","),
-      chbh: "20",
-      chxt: "x",
-      chxr: "0,0,40",
-      chds: "0,40",
-      chdl: "standard|weapon|spell|roll",
-      chdlp: "b|l",
-      chm: "N,003300," + die_roll_pos + ",0,15",
-      chtt: chosen_action + " (DC:" + difficulty + ")"
+    if(!current_targets.length || !current_action){
+      return
     }
 
-    var querystring = $.map(options, function(value, key){
-      return key + "=" + value;
-    }).join("&");
+    var children = $("#difficulty").children();
+    if(children){
+      children.remove();
+    }
 
-    var url = "https://chart.googleapis.com/chart?" + querystring;
+    var ac = {
+      Toronaga: 21,
+      Santorini: 23,
+      Pook: 27,
+      Zakiti: 20
+    };
 
-    $("#difficulty_check").attr("src", url);
+    var stats = [
+      ["standard", 10],
+      ["weapon", 2],
+      ["skill", 1],
+      ["feat", 2],
+      ["aura", 2]
+    ];
+
+
+    $.map(current_targets, function(target){
+      var difficulty = ac[target];
+
+      var url = GRAPHS.generate_action_graph(current_action, target, difficulty, stats);
+      console.log(url);
+
+      var img = $("<img>",{src: url});
+
+      $("<li>").html(img)
+        .appendTo("#difficulty");
+
+    })
+
     $("#damage").focus();
-  },
-
-  handle_choose_action = function(evt) {
-    var chosen_action = $(evt.target).html();
-
-    console.log(chosen_action);
-
-    set_action_graph(chosen_action);
-    $("#difficulty_check").removeClass("hidden");
-
-    console.log(evt);
   };
 
   my.initialize = function(){
     next_character();
     // map event handlers
     $(".character input").blur(function(){next_character();})
-    $("#action img.phase").click(handle_expire_phase);
+    $("#phases img.phase").click(handle_expire_phase);
     $("#action_form").submit(handle_action_log);
     $("#apply_heal").submit(heal_character);
     $("#apply_damage").submit(damage_character);
@@ -348,4 +352,5 @@ var DMINION = (function(){
 
 $(function(){
   DMINION.initialize();
+
 })

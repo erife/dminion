@@ -10,6 +10,7 @@
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/jquery-ui-1.10.2.custom.js"></script>
     <script type="text/javascript" src="/js/dm.js"></script>
+    <script type="text/javascript" src="/js/graphs.js"></script>
   </head>
   <body>
     <div id="main">
@@ -42,6 +43,10 @@
           </table>
         </div>
 
+        <div id="turn" class="panel">
+          <%= turn %>
+        </div>
+
         <div id="legend" class="panel">
           <dl>
             <dt>C-n</dt>
@@ -58,9 +63,6 @@
         </div>
       </div>
       <div class="subset">
-        <div id="turn">
-          <%= turn %>
-        </div>
         <div id="action">
           <%= action %>
         </div>
