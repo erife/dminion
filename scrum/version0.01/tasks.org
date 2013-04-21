@@ -19,6 +19,14 @@ Tasks:
 
 Peter
 
-As a DM
-I see a graphic display of each character's ability in a check
-So I can gauge the difficulty of an event
+1. Create model for characters/creatures
+2. Encounter table with join table to the creatures involved
+3. Encounter selector
+4. Creature insertion interface
+5. Change encounter state to dead/fled/hidden (separate table?)
+6. Load actions based on the characters
+7. Load character traits for modifiers
+8. Display Synopsis
+9. Have surge button auto-fill heal
+10. Change display when a character is bloodied
+11. Alter initiative to change order if they choose
