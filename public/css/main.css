@@ -1,4 +1,57 @@
-body{
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>DMinion - Character (santorini)</title>
+
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen">
+
+    <script type="text/javascript" src="/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui-1.10.2.custom.js"></script>
+    <script type="text/javascript" src="/js/character.js"></script>
+  <style xml:base="/css/" class="web-developer-edit-css-styles" id="web-developer-edit-css-styles-0">html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+
+</style><style xml:base="/css/" class="web-developer-edit-css-styles" id="web-developer-edit-css-styles-1">body{
     font-size: 100%;
     font-family: 'Courier New', monospace;
     font-variant: small-caps;
@@ -68,3 +121,20 @@ tr.current_turn td.turn{
     float: left;
     width: 45%
 }
+</style><base href="http://localhost:3000/character/santorini"></head>
+  <body>
+    <input id="character_name" name="character_name" value="santorini" type="hidden">
+    <div id="main">
+      Character: santorini
+      <dl id="stats">
+        <dt id="health">Health</dt>
+        <dd class="health">100</dd>
+        <dd>/</dd>
+        <dd>100</dd>
+      </dl>
+      <div class="panel">This is a test<div>
+    </div>
+  
+
+
+</div></div></body></html>

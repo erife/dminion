@@ -15,31 +15,58 @@
     <input type="hidden" id="character_name" name="character_name" value="<%= name %>" />
     <div id="main">
       <caption>Character: <%= name %></caption>
-      <dl id="stats">
-        <dt id="health">Health</dt>
-        <dd class="health"><%= health %></dd>
-        <dd>/</dd>
-        <dd><%= max_health %></dd>
-      </dl>
-      <div id="attributes" class="panel">
+    <div id="details">
+      <div id="health" class="panel">
 	<dl>
-	  <dt>STR</dt>
-	  <dd>13</dd>
-	  <dt>CON</dt>
-	  <dd>15</dd>
-	  <dt>DEX</dt>
-	  <dd>18</dd>
-	  <dt>WIS</dt>
-	  <dd>17</dd>
-	  <dt>INT</dt>
-	  <dd>13</dd>
-	  <dt>CHA</dt>
-	  <dd>10</dd>
+	<dt>Hit Points</dt>
+	<dd id="hp_total" class="whole">65</dd>
+	<dd id="hp_current" class="part">50</dd>
+	<dt>Temp HP</dt> 
+	<dd id="hp_temp" class="whole">7</dd>
+	<dt>Surge</dt> 
+	<dd id="surge_total" class="whole">7</dd>
+	<dd id="surge_current" class="part">7</dd>
+	<dt>Surge Value:</dt>
+	<dd id="surge_value">16</dd>
+	<dt>Action Points:</dt>
+	<dd id="action_points">1</dd>
 	</dl>
       </div>
-
-
-
+      <div id="save" class="panel">
+	<dt>AC</dt>
+	<dd id="ac">22</dd>
+	<dt>Fortitude</dt>
+	<dd id="fort">17</dd>
+	<dt>Reflex:</dt>
+	<dd id="reflex">21</dd>
+	<dt>Will:</dt>
+	<dd id="will">19</dd>
+      </div>
+      <div id="stats" class="panel">
+	<dt>Str</dt>
+	<dd id="str">16</dd>
+	<dt>Con</dt>
+	<dd id="con">23</dd>
+	<dt>Dex:</dt>
+	<dd id="dex">10</dd>
+	<dt>Int:</dt>
+	<dd id="int">11</dd>
+	<dt>Wis:</dt>
+	<dd id="wis">12</dd>
+	<dt>Cha:</dt>
+	<dd id="cha">30</dd>
+      </div>
+      <div id="passive" class="panel">
+	<dt>Initiative</dt>
+	<dd id="init">11</dd>
+	<dt>Speed</dt>
+	<dd id="speed">7</dd>
+	<dt>P Perception:</dt>
+	<dd id="p_perception">22</dd>
+	<dt>P Insight:</dt>
+	<dd id="p_insight">20</dd>
+      </div>
+    </div>
     </div>
   </body>
 </html>

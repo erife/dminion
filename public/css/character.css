@@ -1,0 +1,41 @@
+#details{
+    font-size: 15px;
+    width: 50%;
+    margin: auto;
+}
+
+#details div{
+    width: 47%;
+    float: left;
+    height: 9em;
+    padding: .3em;
+}
+
+#details dt{
+    font-size: 1.1em;
+    float: left;
+    clear: left;
+    margin-top:.2em;
+    
+}
+
+#details dd{
+    font-size: 1em;
+    float: right;  
+    margin-top: .2em;
+}
+
+#details dd:hover{
+    font-weight: bold;
+}
+
+.part, .whole{
+    width: 2em;
+    background-color: #CCC;
+    margin-left: .2em;
+    text-align: center;
+}
+
+.part{
+    font-weight: bold;
+}
