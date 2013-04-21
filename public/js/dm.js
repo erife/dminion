@@ -3,8 +3,7 @@ var DMINION = (function(){
   chosen_action = undefined;
 
   // utility functions
-  var ws = new WebSocket("ws://0.0.0.0:8080");
-
+  var ws = new WebSocket("ws://dminion.emlprime.com:8080");
 
   // Web socket event handling
   ws.onmessage = function(evt) {

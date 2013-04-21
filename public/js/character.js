@@ -1,8 +1,7 @@
 $(function(){
   var character_name = $("#character_name").val();
 
-  ws = new WebSocket("ws://0.0.0.0:8080");
-
+  ws = new WebSocket("ws://dminion.emlprime.com:8080");
   ws.onmessage = function(evt) {
     var data = $.parseJSON(evt.data);
     if(data.character_name != character_name){

@@ -3,8 +3,7 @@ source "http://rubygems.org"
 gem "yajl-ruby"
 gem "thin"
 gem "sinatra"
+gem "sinatra-contrib"
+gem "sinatra-reloader"
 gem "em-websocket"
-
-group :development, :test do
-  gem 'sqlite3-ruby', :require => 'sqlite3'
-end
+gem 'rb-inotify', '~> 0.9'

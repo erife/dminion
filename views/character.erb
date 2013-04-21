@@ -15,12 +15,17 @@
     <input type="hidden" id="character_name" name="character_name" value="<%= name %>" />
     <div id="main">
       <caption>Character: <%= name %></caption>
-      <dl id="stats">
+      <dl id="stats" class="panel">
         <dt id="health">Health</dt>
         <dd class="health"><%= health %></dd>
         <dd>/</dd>
         <dd><%= max_health %></dd>
       </dl>
+      <dt id="temp_health">Temporary Hit Points</dt>
+      <dd class="temp_health"><%= temp_health %></dd>
+      <div id="actions" class="panel">
+        This is my cool new panel
+      </div>
     </div>
   </body>
 </html>
