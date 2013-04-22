@@ -1,0 +1,15 @@
+{
+  "name": "zakiti",
+  "level": 9,
+  "hp_current": 50,
+  "hp_temp": 2,
+  "role": "mage",
+  "race": "shardmind",
+  "str": 16,
+  "con": 15,
+  "dex": 14,
+  "int": 13,
+  "wis": 12,
+  "cha": 11,
+  "action_points": 1
+}

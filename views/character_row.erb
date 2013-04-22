@@ -3,8 +3,8 @@
   <td class="status">&nbsp;</td>
   <td class="initiative"><%= character[:initiative] %></td>
   <td class="name"><%= character[:name] %></td>
-  <td class="health"><%= character[:health] %></td>
-  <td class="max_hp"><%= character[:max_health] %></td>
+  <td class="health"><%= character[:hp_current] %></td>
+  <td class="max_hp"><%= character[:hp_total] %></td>
   <td class="turn <%= character[:role] %>">&nbsp;</td>
   <td><img src="../img/detarget.png" class="target" alt="Target Character" /></td>
 </tr>

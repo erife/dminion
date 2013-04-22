@@ -1,0 +1,15 @@
+{
+  "name": "santorini",
+  "level": 10,
+  "hp_current": 80,
+  "hp_temp": 1,
+  "role": "ranger",
+  "race": "elf",
+  "str": 17,
+  "con": 13,
+  "dex": 12,
+  "int": 11,
+  "wis": 16,
+  "cha": 18,
+  "action_points": 0
+}

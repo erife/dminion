@@ -26,7 +26,7 @@ EventMachine.run do
 
     get '/dm' do
       character_data = {}
-      stubs = $db.execute( "select * from characters" )
+      stubs = $db.execute( "select * from character" )
 
       stubs.each do |stub|
         character_data[stub["name"]] = Character.new(stub)
@@ -40,18 +40,19 @@ EventMachine.run do
       resolution_display = erb :resolution
 
       erb :dm, :locals => {
-        :characters => characters_display,
-        :turn       => turn_display,
-        :action     => action_display,
-        :resolution => resolution_display
+        :characters  => characters_display,
+        :turn        => turn_display,
+        :action      => action_display,
+        :resolution  => resolution_display,
+        :socket_host => "0.0.0.0" #ENV["HTTP_HOST"]
       }
     end
 
     get '/character/:character_name' do
-      # stm = $db.prepare( "select * from characters where name=?" )
-      # stm.bind 1, params[:character_name]
-
-      character = Character.new({})
+      stm = $db.prepare( "select * from character where name=?" )
+      stm.bind_params params["character_name"]
+      result = stm.execute.next
+      character = Character.new(result)
       erb :character, :locals => character.format_show()
     end
 
@@ -73,11 +74,11 @@ EventMachine.run do
         event = Yajl::Parser.parse(msg)
         if event["type"] == "health"
           character_name = event["character_name"]
-          character_data = $db.execute("select * from characters where name=?", character_name)[0]
+          character_data = $db.execute("select * from character where name=?", character_name)[0]
           if character_data
             character = Character.new(character_data)
             response = character.handle_event(event)
-            $db.execute "update characters set health=? where name=?", response["msg"], character_name
+            $db.execute "update character set hp_current=? where name=?", response["msg"], character_name
 
             response
           end
