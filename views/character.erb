@@ -4,6 +4,7 @@
 
     <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../css/character.css" type="text/css" media="screen" />
 
     <script type="text/javascript" src="/js/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="/js/bootstrap.js"></script>
@@ -15,16 +16,57 @@
     <input type="hidden" id="character_name" name="character_name" value="<%= name %>" />
     <div id="main">
       <caption>Character: <%= name %></caption>
-      <dl id="stats" class="panel">
-        <dt id="health">Health</dt>
-        <dd class="health"><%= health %></dd>
-        <dd>/</dd>
-        <dd><%= max_health %></dd>
-      </dl>
-      <dt id="temp_health">Temporary Hit Points</dt>
-      <dd class="temp_health"><%= temp_health %></dd>
-      <div id="actions" class="panel">
-        This is my cool new panel
+      <div id="details">
+        <div id="health" class="stat_panel">
+	        <dl>
+	          <dt>Hit Points</dt>
+	          <dd id="hp_total" class="whole">65</dd>
+	          <dd id="hp_current" class="part">50</dd>
+	          <dt>Temp HP</dt>
+	          <dd id="hp_temp" class="whole">7</dd>
+	          <dt>Surge</dt>
+	          <dd id="surge_total" class="whole">7</dd>
+	          <dd id="surge_current" class="part">7</dd>
+	          <dt>Surge Value:</dt>
+	          <dd id="surge_value">16</dd>
+	          <dt>Action Points:</dt>
+	          <dd id="action_points">1</dd>
+	        </dl>
+        </div>
+        <div id="save" class="stat_panel">
+	        <dt>AC</dt>
+	        <dd id="ac">22</dd>
+	        <dt>Fortitude</dt>
+	        <dd id="fort">17</dd>
+	        <dt>Reflex:</dt>
+	        <dd id="reflex">21</dd>
+	        <dt>Will:</dt>
+	        <dd id="will">19</dd>
+        </div>
+        <div id="stats" class="stat_panel">
+	        <dt>Str</dt>
+	        <dd id="str">16</dd>
+	        <dt>Con</dt>
+	        <dd id="con">23</dd>
+	        <dt>Dex:</dt>
+	        <dd id="dex">10</dd>
+	        <dt>Int:</dt>
+	        <dd id="int">11</dd>
+	        <dt>Wis:</dt>
+	        <dd id="wis">12</dd>
+	        <dt>Cha:</dt>
+	        <dd id="cha">30</dd>
+        </div>
+        <div id="passive" class="stat_panel">
+	        <dt>Initiative</dt>
+	        <dd id="init">11</dd>
+	        <dt>Speed</dt>
+	        <dd id="speed">7</dd>
+	        <dt>P Perception:</dt>
+	        <dd id="p_perception">22</dd>
+	        <dt>P Insight:</dt>
+	        <dd id="p_insight">20</dd>
+        </div>
       </div>
     </div>
   </body>

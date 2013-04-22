@@ -48,10 +48,10 @@ EventMachine.run do
     end
 
     get '/character/:character_name' do
-      stm = $db.prepare( "select * from characters where name=?" )
-      stm.bind 1, params[:character_name]
+      # stm = $db.prepare( "select * from characters where name=?" )
+      # stm.bind 1, params[:character_name]
 
-      character = Character.new(stm.execute)
+      character = Character.new({})
       erb :character, :locals => character.format_show()
     end
 
