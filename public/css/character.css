@@ -1,0 +1,46 @@
+#details{
+    font-size: 15px;
+    width: 400px;
+    margin: auto;
+}
+
+
+#details .stat_panel {
+    background-image:url("../img/panel.jpg");
+}
+
+#details div{
+    width: 47%;
+    float: left;
+    height: 9em;
+    padding: .3em;
+}
+
+#details dt{
+    font-size: 1.1em;
+    float: left;
+    clear: left;
+    margin-top:.2em;
+
+}
+
+#details dd{
+    font-size: 1em;
+    float: right;
+    margin-top: .2em;
+}
+
+#details dd:hover{
+    font-weight: bold;
+}
+
+.part, .whole{
+    width: 2em;
+    background-color:rgba(30,30,30,0.1);
+    margin-left: .2em;
+    text-align: center;
+}
+
+.part{
+    font-weight: bold;
+}
