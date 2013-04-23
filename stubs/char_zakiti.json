@@ -11,5 +11,6 @@
   "int": 13,
   "wis": 12,
   "cha": 11,
-  "action_points": 1
+  "action_points": 1,
+  "skills": "bluff,dungeoneering,history,insight,intimidate"
 }

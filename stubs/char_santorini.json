@@ -11,5 +11,6 @@
   "int": 11,
   "wis": 16,
   "cha": 18,
-  "action_points": 0
+  "action_points": 0,
+  "skills": "acrobatics,dungeoneering,perception,stealth,streetwise"
 }

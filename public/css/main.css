@@ -59,7 +59,7 @@ ul{
 }
 
 #main {
-    width: 80%;
+    width: 830px;
     margin: auto;
     padding: 2em;
     position: relative;
@@ -112,7 +112,6 @@ tr.target td img.target {
 .panel {
     float: left;
     clear: left;
-    width: 100%;
     background-image:url("../img/panel.jpg");
     border: 3px groove black;
     -moz-border-radius: 25px 10px / 10px 25px;

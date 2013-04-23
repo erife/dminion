@@ -18,6 +18,7 @@ fields = %w(
  wis
  cha
  action_points
+ skills
 )
 statements = [
   '''drop table character ''',
