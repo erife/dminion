@@ -53,9 +53,9 @@ class Character
     stats = %w(str con dex int wis cha)
     @stats = Hash[stats.map {|stat| [stat, options[stat].to_i]}]
 
-    @hp_current = options["hp_current"]
-    @hp_temp    = options["hp_temp"]
-    @action_points = options["action_points"]
+    @hp_current = options["hp_current"].to_i
+    @hp_temp    = options["hp_temp"].to_i
+    @action_points = options["action_points"].to_i
 
     @skills = options["skills"].nil? ? [] : options["skills"].split(",")
     puts "PDS >> @skills: #{@skills.inspect} #{__FILE__} #{__LINE__}"
