@@ -203,20 +203,15 @@ class Character
     level_modifier + stat_modifier + trained_modifier + race_modifier
   end
 
-  def perception()
-    calc_skill_modifier("perception")
+  def get_skill(skill, passive = false)
+    raise "Unknown skill" unless SKILL_MODS.keys.include?(skill)
+
+    calc_skill_modifier(skill) + (passive ? PASSIVE_MODIFIER : 0)
   end
 
-  def insight()
-    calc_skill_modifier("insight")
-  end
-
-  def p_perception()
-    PASSIVE_MODIFIER + perception
-  end
-
-  def p_insight()
-    PASSIVE_MODIFIER + insight
+  def get_passive_skill(skill)
+    passive = true
+    get_skill(skill, passive)
   end
 
   # END CALCULATED TRAITS
@@ -251,8 +246,8 @@ class Character
       :wis           => @stats["wis"],
       :cha           => @stats["cha"],
       :speed         => speed,
-      :p_perception  => p_perception,
-      :p_insight     => p_insight,
+      :p_perception  => get_passive_skill("perception"),
+      :p_insight     => get_passive_skill("insight"),
     }
   end
 
