@@ -1,0 +1,30 @@
+#skills {
+    width: 200px;
+    /* text-shadow: 0.1em 0.1em .08em black; */
+}
+
+#skills.panel {
+background-image:url("../img/panel.jpg");
+    border: 3px groove black;
+    -moz-border-radius: 25px 10px / 10px 25px;
+    border-radius: 25px 10px / 10px 25px;
+    padding: 1em;
+    margin-top: 1em;
+}
+
+
+#skills dt {
+    float: left;
+    clear: left;
+}
+
+#skills dd {
+    float: right;
+}
+
+.str {color: red;}
+.con {color: black;}
+.dex {color: green;}
+.int {color: blue;}
+.wis {color: purple;}
+.cha {color: magenta;}

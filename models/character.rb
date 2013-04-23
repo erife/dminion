@@ -9,7 +9,7 @@ class Character
     "bluff"         => "cha",
     "diplomacy"     => "cha",
     "dungeoneering" => "wis",
-    "endurance"     => "int",
+    "endurance"     => "con",
     "heal"          => "wis",
     "history"       => "int",
     "insight"       => "wis",

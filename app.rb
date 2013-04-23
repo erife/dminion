@@ -53,9 +53,10 @@ EventMachine.run do
       stm.bind_params params["character_name"]
       result = stm.execute.next
       character = Character.new(result)
-      params_to_send = character.format_show()
-      params_to_send[:socket_host] = "0.0.0.0" #ENV["HTTP_HOST"]
-      erb :character, :locals => params_to_send
+      context = character.format_show()
+      context[:socket_host] = "0.0.0.0" #ENV["HTTP_HOST"]
+      context[:skills_panel] = erb :skills, :locals => {}
+      erb :character, :locals => context
     end
 
     post '/' do
