@@ -5,7 +5,8 @@
     <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="../css/character.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="../css/skills.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../css/character_details.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../css/character_skills.css" type="text/css" media="screen" />
 
     <script type="text/javascript">
       var host = "<%= socket_host %>";
@@ -19,66 +20,13 @@
   <body>
     <input type="hidden" id="character_name" name="character_name" value="<%= name %>" />
     <div id="main">
-      <caption>Character: <%= name %></caption>
-      <div id="details">
-        <div id="health" class="stat_panel">
-	        <dl>
-	          <dt>Level</dt>
-	          <dd id="level"><%= level %></dd>
-	          <dt>Race</dt>
-	          <dd id="race"><%= race %></dd>
-	          <dt>Class</dt>
-	          <dd id="role"><%= role %></dd>
-	          <dt>Hit Points</dt>
-	          <dd id="hp_total" class="whole"><%= hp_total %></dd>
-	          <dd id="hp_current" class="part"><%= hp_current %></dd>
-	          <dt>Temp HP</dt>
-	          <dd id="hp_temp" class="whole"><%= hp_temp %></dd>
-	          <dt>Surge</dt>
-	          <dd id="surge_total" class="whole"><%= surge_total %></dd>
-	          <dd id="surge_current" class="part"><%= surge_current %></dd>
-	          <dt>Surge Value:</dt>
-	          <dd id="surge_value"><%= surge_value %></dd>
-	          <dt>Action Points:</dt>
-	          <dd id="action_points"><%= action_points %></dd>
-	        </dl>
-        </div>
-        <div id="save" class="stat_panel">
-	        <dt>AC</dt>
-	        <dd id="ac"><%= ac %></dd>
-	        <dt>Fortitude</dt>
-	        <dd id="fort"><%= fort %></dd>
-	        <dt>Reflex:</dt>
-	        <dd id="reflex"><%= reflex %></dd>
-	        <dt>Will:</dt>
-	        <dd id="will"><%= will %></dd>
-        </div>
-        <div id="stats" class="stat_panel">
-	        <dt>Str</dt>
-	        <dd id="str"><%= str %></dd>
-	        <dt>Con</dt>
-	        <dd id="con"><%= con %></dd>
-	        <dt>Dex:</dt>
-	        <dd id="dex"><%= dex %></dd>
-	        <dt>Int:</dt>
-	        <dd id="int"><%= int %></dd>
-	        <dt>Wis:</dt>
-	        <dd id="wis"><%= wis %></dd>
-	        <dt>Cha:</dt>
-	        <dd id="cha"><%= cha %></dd>
-        </div>
-        <div id="passive" class="stat_panel">
-	        <dt>Initiative</dt>
-	        <dd id="initiative"><%= initiative %></dd>
-	        <dt>Speed</dt>
-	        <dd id="speed"><%= speed %></dd>
-	        <dt>P Perception:</dt>
-	        <dd id="p_perception"><%= p_perception %></dd>
-	        <dt>P Insight:</dt>
-	        <dd id="p_insight"><%= p_insight %></dd>
-        </div>
+      <h2>Character: <%= name %></h2>
+      <div id="details" class="panel">
+        <%= details_panel %>
       </div>
-      <%= skills_panel %>
+      <div id="skills" class="panel">
+        <%= skills_panel %>
+      </div>
     </div>
   </body>
 </html>

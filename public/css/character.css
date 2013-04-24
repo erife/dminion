@@ -1,46 +1,23 @@
-#details{
-    font-size: 15px;
-    width: 400px;
-    margin: auto;
+h2 {
+    font-size: 20px;
+    color: white;
 }
 
-
-#details .stat_panel {
-    background-image:url("../img/panel.jpg");
-}
-
-#details div{
-    width: 47%;
+#details {
+    font-size: 12px;
+    width: 300px;
     float: left;
-    height: 12em;
-    padding: .3em;
+    margin-right: 2em;
 }
 
-#details dt{
-    font-size: 1.1em;
+#skills {
+    width: 200px;
     float: left;
-    clear: left;
-    margin-top:.2em;
-
 }
 
-#details dd{
-    font-size: 1em;
-    float: right;
-    margin-top: .2em;
-}
-
-#details dd:hover{
-    font-weight: bold;
-}
-
-.part, .whole{
-    width: 2em;
-    background-color:rgba(30,30,30,0.1);
-    margin-left: .2em;
-    text-align: center;
-}
-
-.part{
-    font-weight: bold;
-}
+.str {color: red;}
+.con {color: black;}
+.dex {color: green;}
+.int {color: blue;}
+.wis {color: purple;}
+.cha {color: magenta;}

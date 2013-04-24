@@ -59,6 +59,7 @@ ul{
 }
 
 #main {
+    outline: 1px dashed red;
     width: 830px;
     margin: auto;
     padding: 2em;
@@ -111,7 +112,6 @@ tr.target td img.target {
 
 .panel {
     float: left;
-    clear: left;
     background-image:url("../img/panel.jpg");
     border: 3px groove black;
     -moz-border-radius: 25px 10px / 10px 25px;
@@ -197,5 +197,16 @@ tr.target td img.target {
 #legend dt {
     clear: left;
     width: 100px;
+    font-weight: bold;
+}
+
+.part, .whole{
+    width: 2em;
+    background-color:rgba(30,30,30,0.1);
+    margin-left: .2em;
+    text-align: center;
+}
+
+.part{
     font-weight: bold;
 }

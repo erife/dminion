@@ -55,7 +55,8 @@ EventMachine.run do
       character = Character.new(result)
       context = character.format_show()
       context[:socket_host] = "0.0.0.0" #ENV["HTTP_HOST"]
-      context[:skills_panel] = erb :skills, :locals => {}
+      context[:details_panel] = erb :character_details, :locals => context
+      context[:skills_panel] = erb :character_skills, :locals => {}
       erb :character, :locals => context
     end
 
@@ -102,5 +103,5 @@ EventMachine.run do
 
   end
 
-  App.run!({:port => 3000})
+  App.run!({:port => 4567})
 end

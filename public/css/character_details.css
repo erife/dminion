@@ -1,0 +1,23 @@
+#details div.stat_panel{
+    width: 47%;
+    float: left;
+    height: 12em;
+    padding: .3em;
+}
+
+#details dt{
+    font-size: 1.1em;
+    float: left;
+    clear: left;
+    margin-top:.2em;
+}
+
+#details dd{
+    font-size: 1em;
+    float: right;
+    margin-top: .2em;
+}
+
+#details dd:hover{
+    font-weight: bold;
+}
