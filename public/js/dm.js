@@ -134,8 +134,7 @@ var DMINION = (function(){
 
       $.map(current_targets, function(current_target){
         emit_health_event(current_target, -1 * value);
-        playSound("../sounds/arrow.wav");
-
+        play_sound_effect("hit" , current_character_role());
       })
 
       boilerplate = character_name + " does " + value + " damage to " + targets_string(current_targets);
@@ -145,6 +144,18 @@ var DMINION = (function(){
       target.val("");
     }
     return false;
+  },
+
+  play_sound_effect = function(action, role){
+    var filename = action;
+
+    if(role){
+      filename += "_" + role
+    }
+    file = "../sounds/" + filename + ".wav";
+
+    playSound(file);
+    return true;
   },
 
   get_current_targets = function(){
@@ -272,6 +283,16 @@ var DMINION = (function(){
 
   current_character_name = function(){
     return $("tr.current_turn").attr("id");
+  },
+
+  current_character_role = function(){
+    var roles = $(".current_turn .turn").attr("class").split(" ").filter(function(elem) {return ["ranger", "mage"].indexOf(elem) != -1;});
+    if(roles){
+      role = roles[0];
+    } else{
+      role = undefined;
+    }
+    return role;
   },
 
   auto_populate_action_log = function(msg) {
